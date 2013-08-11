@@ -59,12 +59,18 @@ public class Board {
 	void movePiece(Position source, Position target) {
 		Piece targetPiece = findPiece(source);
 		if (targetPiece.getSymbol() == Piece.Type.EMPTY.getSymbol()) {
-			System.out.println("No Piece!");
+			System.out.println("No Piece Error!");
 			return;
 		}
 
 		if (!target.isValid()) {
 			System.out.println("Target Position Error!");
+			return;
+		}
+		
+		//true == true 혹은 false == false라면 둘은 같은 색이다.
+		if (findPiece(target).isWhite() == findPiece(source).isWhite()) {
+			System.out.println("Friendly Fire Error!");
 			return;
 		}
 		

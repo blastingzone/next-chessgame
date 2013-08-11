@@ -79,9 +79,17 @@ public class BoardTest extends TestCase {
 	public void testWrongTargetMove() throws Exception {
 		board.initialize();
 		Position source = new Position("a2");
-		Piece sourcePiece = board.findPiece(source);
-		
 		Position target = new Position("g9");
+		board.movePiece(source, target);
+	}
+	
+	public void testSameColorAttack() throws Exception {
+		board.initialize();
+		Position source = new Position("a1");
+		Position target = new Position("a2");
+		board.movePiece(source, target);
+		source = new Position("a8");
+		target = new Position("a7");
 		board.movePiece(source, target);
 	}
 }
