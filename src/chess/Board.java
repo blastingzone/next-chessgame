@@ -58,6 +58,10 @@ public class Board {
 
 	void movePiece(Position source, Position target) {
 		Piece targetPiece = findPiece(source);
+		if (targetPiece.getSymbol() == Piece.Type.EMPTY.getSymbol()) {
+			System.out.println("No Piece!");
+			return;
+		}
 		Piece sourcePiece = targetPiece.leave();
 		
 		Rank sourceRank = ranks.get(source.getY());
