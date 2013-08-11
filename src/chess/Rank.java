@@ -10,12 +10,13 @@ import pieces.Knight;
 import pieces.Pawn;
 import pieces.Piece;
 import pieces.Piece.Color;
+import pieces.PieceOperations;
 import pieces.Position;
 import pieces.Queen;
 import pieces.Rook;
 
 public class Rank {
-	private List<Piece> rank = new ArrayList<Piece>();
+	private List<PieceOperations> rank = new ArrayList<PieceOperations>();
 	
 	private int rankPosition;
 	
@@ -72,7 +73,7 @@ public class Rank {
 		return sb.toString();
 	}
 
-	Piece findPiece(Position position) {
+	PieceOperations findPiece(Position position) {
 		return rank.get(position.getX());
 	}
 
@@ -80,7 +81,7 @@ public class Rank {
 		rank.set(xPosition, targetPiece);
 	}
 
-	Piece move(Piece sourcePiece, Position target) {
+	PieceOperations move(PieceOperations sourcePiece, Position target) {
 		sourcePiece.move(target);
 		rank.set(target.getX(), sourcePiece);
 		return sourcePiece;
