@@ -62,6 +62,12 @@ public class Board {
 			System.out.println("No Piece!");
 			return;
 		}
+
+		if (!target.isValid()) {
+			System.out.println("Target Position Error!");
+			return;
+		}
+		
 		Piece sourcePiece = targetPiece.leave();
 		
 		Rank sourceRank = ranks.get(source.getY());

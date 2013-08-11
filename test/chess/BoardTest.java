@@ -75,4 +75,13 @@ public class BoardTest extends TestCase {
 		System.out.println(board.generateBoard());
 		assertEquals(sourcePiece.getSymbol(), board.findPiece(target).getSymbol());
 	}
+	
+	public void testWrongTargetMove() throws Exception {
+		board.initialize();
+		Position source = new Position("a2");
+		Piece sourcePiece = board.findPiece(source);
+		
+		Position target = new Position("g9");
+		board.movePiece(source, target);
+	}
 }
