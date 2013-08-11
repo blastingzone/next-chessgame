@@ -13,6 +13,7 @@ public class Board {
 	public static final int COLUMN_SIZE = 8;
 	
 	private GenerateBoard generateBoard = new BoardConsolePrint();
+	private InitializeBoard initialBoard = new Initialize();
 	
 	List<Rank> ranks = new ArrayList<Rank>();
 	
@@ -20,29 +21,11 @@ public class Board {
 	}
 
 	void initialize() {
-		for (int i = 0; i < ROW_SIZE; i++) {
-			Rank rank = new Rank(i);
-			if (i==0) {
-				rank.initializeWhiteExceptPawn();
-			} else if (i==1) {
-				rank.initializeWhitePawn();
-			} else if (i==6) {	
-				rank.initializeBlackPawn();
-			} else if (i==7) {
-				rank.initializeBlackExceptPawn();
-			} else {
-				rank.initializeEmpty();
-			}
-			ranks.add(rank);
-		}
+		initialBoard.initialize(this);
 	}
 	
-	void initializeEmpty() {
-		for (int i = 0; i < ROW_SIZE; i++) {
-			Rank rank = new Rank(i);
-			rank.initializeEmpty();
-			ranks.add(rank);
-		}
+	void setInitialize(InitializeBoard initialBoard) {
+		this.initialBoard = initialBoard;
 	}
 
 	PieceOperations findPiece(String xy) {

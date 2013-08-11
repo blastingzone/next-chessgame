@@ -13,6 +13,7 @@ public class BoardTest extends TestCase {
 	@Override
 	protected void setUp() throws Exception {
 		board = new Board();
+		board.setInitialize(new Initialize());
 	}
 	
 	public void testCreate() throws Exception {
@@ -47,7 +48,8 @@ public class BoardTest extends TestCase {
 	}
 	
 	public void testInitializeEmpty() throws Exception {
-		board.initializeEmpty();
+		board.setInitialize(new InitializeEmpty());
+		board.initialize();
 		System.out.println(board.generateBoard());
 	}
 	
