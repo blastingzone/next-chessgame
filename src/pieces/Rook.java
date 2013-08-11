@@ -12,8 +12,8 @@ public class Rook extends Piece {
 	List<Position> getPossibleMoves() {
 		ArrayList<Position> canMove = new ArrayList<Position>();
 		for (Direction direction : Direction.linearDirection()) {
-			List<Position> ListFound = super.position.findsPosition(direction);
-			for (Position position : ListFound) {
+			List<Position> foundPosition = this.position.findsPosition(direction);
+			for (Position position : foundPosition) {
 				canMove.add(position);
 			}
 		}
