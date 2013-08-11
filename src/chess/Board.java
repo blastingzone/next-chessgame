@@ -12,6 +12,8 @@ public class Board {
 	public static final int ROW_SIZE = 8;
 	public static final int COLUMN_SIZE = 8;
 	
+	private GenerateBoard generateBoard = new BoardConsolePrint();
+	
 	List<Rank> ranks = new ArrayList<Rank>();
 	
 	Board() {
@@ -96,11 +98,12 @@ public class Board {
 		return sb.toString();
 	}
 
-	String generateBoard() {
-		StringBuilder sb = new StringBuilder();
-		for (int i = ROW_SIZE; i > 0; i--) {
-			sb.append(generateRank(i-1) + NEW_LINE);
-		}
-		return sb.toString();
+	void setGenerateBoard(GenerateBoard generateBoard) {
+		this.generateBoard = generateBoard;
 	}
+	
+	String generateBoard() {
+		return generateBoard.generateBoard(this);
+	}
+	
 }
