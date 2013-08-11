@@ -17,9 +17,15 @@ public class Pawn extends Piece {
 		
 		if (this.isBlack() && moveBlackPawn.isValid()) {
 			canMove.add(moveBlackPawn);
+			if (this.position.getY() == 6) {
+				canMove.add(moveBlackPawn.move(Direction.SOUTH));
+			}
 		}
 		else if (this.isWhite() && moveWhitePawn.isValid()) {
 			canMove.add(moveWhitePawn);
+			if (this.position.getY() == 1) {
+				canMove.add(moveWhitePawn.move(Direction.NORTH));
+			}
 		}
 		
 		return canMove;
