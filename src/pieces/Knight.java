@@ -11,7 +11,7 @@ public class Knight extends Piece {
 	}
 
 	@Override
-	List<Position> getPossibleMoves() {
+	public	List<Position> getPossibleMoves() {
 		Set<Position> canMove = new HashSet<Position>();
 		for (Direction LDirection : Direction.linearDirection()) {
 			Position firstStep = this.position.move(LDirection);

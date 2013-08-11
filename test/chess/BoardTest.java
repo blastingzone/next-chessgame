@@ -81,6 +81,7 @@ public class BoardTest extends TestCase {
 		Position source = new Position("a2");
 		Position target = new Position("g9");
 		board.movePiece(source, target);
+		System.out.println(board.generateBoard());
 	}
 	
 	public void testSameColorAttack() throws Exception {
@@ -88,8 +89,18 @@ public class BoardTest extends TestCase {
 		Position source = new Position("a1");
 		Position target = new Position("a2");
 		board.movePiece(source, target);
+		System.out.println(board.generateBoard());
 		source = new Position("a8");
 		target = new Position("a7");
 		board.movePiece(source, target);
+		System.out.println(board.generateBoard());
+	}
+	
+	public void testImpossibleMovement() throws Exception {
+		board.initialize();
+		Position source = new Position("a2");
+		Position target = new Position("a5");
+		board.movePiece(source, target);
+		System.out.println(board.generateBoard());
 	}
 }

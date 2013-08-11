@@ -74,6 +74,11 @@ public class Board {
 			return;
 		}
 		
+		if (!findPiece(source).getPossibleMoves().contains(target)) {
+			System.out.println("Impossible Movement Error!");
+			return;
+		}
+		
 		Piece sourcePiece = targetPiece.leave();
 		
 		Rank sourceRank = ranks.get(source.getY());

@@ -10,7 +10,7 @@ public class Pawn extends Piece {
 	}
 
 	@Override
-	List<Position> getPossibleMoves() {
+	public	List<Position> getPossibleMoves() {
 		List<Position> canMove = new ArrayList<Position>();
 		Position moveBlackPawn = this.position.move(Direction.SOUTH);
 		Position moveWhitePawn = this.position.move(Direction.NORTH);
